@@ -47,8 +47,3 @@ UIKIT_STATIC_INLINE CGFloat YBRectRight(CGRect rect)
 {
     return rect.origin.x + rect.size.width;
 }
-
-
-
-
-

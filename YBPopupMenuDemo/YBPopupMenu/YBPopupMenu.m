@@ -57,7 +57,7 @@
 - (void)drawRect:(CGRect)rect
 {
     if (!_isShowSeparator) return;
-    UIBezierPath *bezierPath = [UIBezierPath bezierPathWithRect:CGRectMake(0, rect.size.height - 0.5, rect.size.width, 0.5)];
+    UIBezierPath *bezierPath = [UIBezierPath bezierPathWithRect:CGRectMake(15, rect.size.height - 0.5, rect.size.width-30, 0.5)];
     [_separatorColor setFill];
     [bezierPath fillWithBlendMode:kCGBlendModeNormal alpha:1];
     [bezierPath closePath];
@@ -171,7 +171,17 @@ UITableViewDataSource
         cell.textLabel.numberOfLines = 0;
     }
     cell.backgroundColor = [UIColor clearColor];
-    cell.textLabel.textColor = _textColor;
+    cell.textLabel.textAlignment = NSTextAlignmentCenter;
+    if (_showCustomColor == 0) {
+        cell.textLabel.textColor = _textColor;
+    }else if (_showCustomColor == 1) {
+        if (indexPath.row == 0) {
+            cell.textLabel.textColor = [UIColor colorWithRed:64/255.0 green:158/255.0 blue:255/255.0 alpha:1.00];
+        }else{
+            cell.textLabel.textColor = [UIColor colorWithRed:227/255.0 green:63/255.0 blue:63/255.0 alpha:1.00];
+        }
+    }
+
     if (_font) {
         cell.textLabel.font = _font;
     }else {
@@ -290,6 +300,7 @@ UITableViewDataSource
     _itemHeight = 44;
     _isCornerChanged = NO;
     _showMaskView = YES;
+    _showCustomColor = 0;
     _orientationManager = [YBPopupMenuDeviceOrientationManager manager];
     _animationManager = [YBPopupMenuAnimationManager manager];
     _animationManager.animationView = self;
@@ -505,14 +516,15 @@ UITableViewDataSource
     if (CGRectEqualToRect(_relyRect, CGRectZero)) {
         return;
     }
+    /// 额外加的10像素为了更贴近控件
     if (_arrowDirection == YBPopupMenuArrowDirectionTop) {
-        _point.y = _relyRect.size.height + _relyRect.origin.y;
+        _point.y = _relyRect.size.height + _relyRect.origin.y - 10;
     }else if (_arrowDirection == YBPopupMenuArrowDirectionBottom) {
-        _point.y = _relyRect.origin.y;
+        _point.y = _relyRect.origin.y + 10;
     }else if (_arrowDirection == YBPopupMenuArrowDirectionLeft) {
-        _point = CGPointMake(_relyRect.origin.x + _relyRect.size.width, _relyRect.origin.y + _relyRect.size.height / 2);
+        _point = CGPointMake(_relyRect.origin.x + _relyRect.size.width, _relyRect.origin.y - 10 + _relyRect.size.height / 2);
     }else {
-        _point = CGPointMake(_relyRect.origin.x, _relyRect.origin.y + _relyRect.size.height / 2);
+        _point = CGPointMake(_relyRect.origin.x, _relyRect.origin.y - 10 + _relyRect.size.height / 2);
     }
 }
 
