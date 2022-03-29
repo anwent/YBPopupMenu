@@ -98,6 +98,11 @@ typedef NS_ENUM(NSInteger , YBPopupMenuPriorityDirection) {
 @property (nonatomic, assign) BOOL showMaskView;
 
 /**
+ 是否显示自定义的字体颜色 Default is 0
+ */
+@property (nonatomic, assign) CGFloat showCustomColor;
+
+/**
  选择菜单项后消失 Default is YES
  */
 @property (nonatomic, assign) BOOL dismissOnSelected;
