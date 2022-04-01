@@ -172,10 +172,21 @@ UITableViewDataSource
     }
     cell.backgroundColor = [UIColor clearColor];
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
+    /// 字体颜色自定义修改
     if (_showCustomColor == 0) {
         cell.textLabel.textColor = _textColor;
     }else if (_showCustomColor == 1) {
+        /// 盘库
         if (indexPath.row == 0) {
+            cell.textLabel.textColor = [UIColor colorWithRed:64/255.0 green:158/255.0 blue:255/255.0 alpha:1.00];
+        }else{
+            cell.textLabel.textColor = [UIColor colorWithRed:227/255.0 green:63/255.0 blue:63/255.0 alpha:1.00];
+        }
+    }else if (_showCustomColor == 2) {
+        /// 出库
+        if (indexPath.row == 0) {
+            cell.textLabel.textColor = [UIColor colorWithRed:64/255.0 green:158/255.0 blue:255/255.0 alpha:1.00];
+        }else if (indexPath.row == 1){
             cell.textLabel.textColor = [UIColor colorWithRed:64/255.0 green:158/255.0 blue:255/255.0 alpha:1.00];
         }else{
             cell.textLabel.textColor = [UIColor colorWithRed:227/255.0 green:63/255.0 blue:63/255.0 alpha:1.00];
