@@ -191,6 +191,22 @@ UITableViewDataSource
         }else{
             cell.textLabel.textColor = [UIColor colorWithRed:227/255.0 green:63/255.0 blue:63/255.0 alpha:1.00];
         }
+    }else if (_showCustomColor == 3) {
+        /// 部分入库
+        if (indexPath.row == 0) {
+            cell.textLabel.textColor = [UIColor colorWithRed:64/255.0 green:158/255.0 blue:255/255.0 alpha:1.00];
+        }else if (indexPath.row == 1){
+            cell.textLabel.textColor = [UIColor colorWithRed:227/255.0 green:63/255.0 blue:63/255.0 alpha:1.00];
+        }else{
+            cell.textLabel.textColor = [UIColor colorWithRed:64/255.0 green:158/255.0 blue:255/255.0 alpha:1.00];
+        }
+    }else if (_showCustomColor == 4) {
+        /// （盘盈入库）部分入库
+        if (indexPath.row == 0) {
+            cell.textLabel.textColor = [UIColor colorWithRed:227/255.0 green:63/255.0 blue:63/255.0 alpha:1.00];
+        }else{
+            cell.textLabel.textColor = [UIColor colorWithRed:64/255.0 green:158/255.0 blue:255/255.0 alpha:1.00];
+        }
     }
 
     if (_font) {
