@@ -171,7 +171,7 @@ UITableViewDataSource
         cell.textLabel.numberOfLines = 0;
     }
     cell.backgroundColor = [UIColor clearColor];
-    cell.textLabel.textAlignment = NSTextAlignmentCenter;
+    cell.textLabel.textAlignment = NSTextAlignmentLeft;
     /// 字体颜色自定义修改
     if (_showCustomColor == 0) {
         cell.textLabel.textColor = _textColor;
