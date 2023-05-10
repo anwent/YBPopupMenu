@@ -60,6 +60,8 @@ typedef NS_ENUM(NSInteger , YBPopupMenuPriorityDirection) {
 
 @interface YBPopupMenu : UIView
 
+@property (nonatomic, assign) NSTextAlignment alignment;
+
 /**
  标题数组 只读属性
  */
